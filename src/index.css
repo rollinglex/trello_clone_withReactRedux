@@ -1,5 +1,5 @@
 * {
-	outline: 1px solid gray;
+	ooutline: 1px solid gray;
 }
 
 /**********************************
@@ -74,17 +74,24 @@ Panel
 .panel-container {
 	display: flex;
 	float: left;
-	margin: 1rem;
-	background-color: #f7f7f7;
+	margin: 0 1rem;
+	position: absolute;
+	top: 4rem;
+	bottom: 1rem;
 }
 
 .panel-container > * {
 	margin: 0 1rem;
 }
-
 .panel-card-wrapper {
+	display: flex;
+}
+.panel-card {
 	width: 16rem;
 	padding: 8px;
+	margin: 0 1rem;
+	outline: 1px solid gray;
+	background-color: #f3f3f3;
 }
 
 .add-panel-container {

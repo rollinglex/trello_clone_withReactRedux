@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Note = props => {
+const Note = ({ content, key }) => {
 	return (
-		<p className="note">
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor
-			sit amet, consectetur adipiscing elit.
+		<p key={key} className="note">
+			{content}
 		</p>
 	);
 };

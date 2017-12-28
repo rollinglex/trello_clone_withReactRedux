@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Board from "../components/Board";
 import BoardHeader from "../components/BoardHeader";
+
 class BoardContainer extends Component {
 	render() {
 		return (
@@ -15,9 +16,8 @@ class BoardContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	console.log("TO SHOW", state.boardToSHow);
 	return {
-		boardTitle: state.boardToSHow.board_title
+		boardTitle: state.boardToShow.board_title
 	};
 };
 

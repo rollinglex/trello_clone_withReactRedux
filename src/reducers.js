@@ -24,10 +24,9 @@ function user(state = initialUserState, action) {
 }
 
 //board on display
-function boardToSHow(state = board.boards[0], action) {
+function boardToShow(state = board.boards[0], action) {
 	switch (action.type) {
 		case BOARD_TO_SHOW:
-			console.log(board.boards[0], "first");
 			let selectedBoard = board.boards.filter(
 				board => board.board_title === action.data
 			);
@@ -48,6 +47,6 @@ function allBoards(state = board.boards, action) {
 export const djelloApp = combineReducers({
 	sample,
 	user,
-	boardToSHow,
+	boardToShow,
 	allBoards
 });
