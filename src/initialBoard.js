@@ -7,6 +7,7 @@ let initialBoard = {
 	boards: [
 		{
 			board_title: "Board 1",
+			board_id: 1,
 			panels: [
 				{
 					panel_title: "Panel A",
@@ -28,6 +29,7 @@ let initialBoard = {
 		},
 		{
 			board_title: "Board 2",
+			board_id: 2,
 			panels: [
 				{
 					panel_title: "Panel A",

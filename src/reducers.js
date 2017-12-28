@@ -23,15 +23,31 @@ function user(state = initialUserState, action) {
 	}
 }
 
+//board on display
 function boardToSHow(state = board.boards[0], action) {
 	switch (action.type) {
+		case BOARD_TO_SHOW:
+			console.log(board.boards[0], "first");
+			let selectedBoard = board.boards.filter(
+				board => board.board_title === action.data
+			);
+
+			return selectedBoard[0];
 		default:
 			return state;
 	}
 }
 
+//array of all boards
+function allBoards(state = board.boards, action) {
+	switch (action.type) {
+		default:
+			return state;
+	}
+}
 export const djelloApp = combineReducers({
 	sample,
 	user,
-	boardToSHow
+	boardToSHow,
+	allBoards
 });

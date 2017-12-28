@@ -15,6 +15,7 @@ class BoardContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+	console.log("TO SHOW", state.boardToSHow);
 	return {
 		boardTitle: state.boardToSHow.board_title
 	};
