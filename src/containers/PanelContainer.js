@@ -6,12 +6,11 @@ import NoteContainer from "./NoteContainer";
 //creates panels from array
 const getPanels = panelArray => {
 	return panelArray.map(panel => {
-		console.log(panel);
 		return (
 			<div className="panel-card" key={panel.panel_ID}>
 				<div className="panel-header">{panel.panel_title}</div>
 				<div className="notes-wrapper">
-					<NoteContainer notesArray={panel.notes} />
+					<NoteContainer notesArray={panel.notes} panelID={panel.panel_ID} />
 				</div>
 			</div>
 		);
@@ -22,8 +21,6 @@ class PanelContainer extends Component {
 	numberOfPanels = this.props.numberOfPanels;
 	panelCards = () => getPanels(this.props.panelsArray);
 	render() {
-		console.log(this.numberOfPanels);
-		console.log(this.props.panelsArray);
 		return (
 			<section className="panel-container">
 				<Panel children={this.panelCards()} />

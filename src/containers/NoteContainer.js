@@ -15,9 +15,12 @@ class NoteContainer extends Component {
 		return (
 			<div className="note-container">
 				{this.notes}
-				<div className="addNote">
-					<input type="text" value="Add Note" />
+				<div className="addNote" id={this.props.panelID}>
+					<textarea type="text" value="Add Note">
+						{" "}
+					</textarea>
 					<button className="addNoteBtn"> &#9998;</button>
+					<button className="closeAddNote">&#9747;</button>
 				</div>
 			</div>
 		);

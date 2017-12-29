@@ -5,7 +5,6 @@ import Header from "../components/Header";
 
 class HeaderContainer extends Component {
 	render() {
-		console.log("props", this.props);
 		return <Header {...this.props} />;
 	}
 }

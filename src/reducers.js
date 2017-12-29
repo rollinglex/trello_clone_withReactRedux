@@ -27,7 +27,6 @@ function user(state = initialUserState, action) {
 
 //board on display
 function boardToShow(state = board.boards[0], action) {
-	console.log("In reducer", action.data);
 	switch (action.type) {
 		case BOARD_TO_SHOW:
 			return action.data;

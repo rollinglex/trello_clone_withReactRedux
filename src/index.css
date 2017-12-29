@@ -136,7 +136,29 @@ Notes
 	padding: 6px;
 }
 .note {
-	background-color: #e3a974;
+	background-color: #d8d8d8;
 	padding-left: 4px;
 	padding-top: 2px;
+}
+/**********************************
+Add note component
+***********************************/
+.addNote textarea {
+	background-color: #f3f3f3;
+	color: #708c8c;
+	width: 95%;
+	margin: 0 auto;
+	padding: 6px;
+	border: none;
+	resize: none;
+}
+.addNote textarea:focus {
+	outline-color: #8adfd4;
+	outline-style: double;
+}
+.addNote textarea:focus ~ button {
+	display: inline-block;
+}
+.addNote button {
+	display: none;
 }
