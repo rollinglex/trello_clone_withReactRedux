@@ -13,18 +13,37 @@ let initialBoard = {
 					panel_title: "Panel A",
 					panel_ID: "1A",
 					notes: [
-						"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-						" TWO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet risus vel felis vestibulum luctus. Maecenas ac ante commodo, tristique turpis a, faucibus orci. Proin ornare convallis tellus, eu consequat augue lobortis ut. Sed iaculis egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-						" THREE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						{
+							note_ID: "1A-1",
+							note:
+								"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						},
+						{
+							note_ID: "1A-2",
+							note:
+								" TWO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet risus vel felis vestibulum luctus. Maecenas ac ante commodo, tristique turpis a, faucibus orci. Proin ornare convallis tellus, eu consequat augue lobortis ut. Sed iaculis egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						},
+						{
+							note_ID: "1A-3",
+							note:
+								"THREE Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+						}
 					]
 				},
 				{
 					panel_title: "Panel B",
 					panel_ID: "1B",
 					notes: [
-						"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-						" TWO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet risus vel felis vestibulum luctus. Maecenas ac ante commodo, tristique turpis a, faucibus orci. Proin ornare convallis tellus, eu consequat augue lobortis ut. Sed iaculis egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-						" THREE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						{
+							note_ID: "1B-1",
+							note:
+								"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						},
+						{
+							note_ID: "1B-2",
+							note:
+								"TWO ipsum dolor sit Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						}
 					]
 				}
 			]
@@ -37,9 +56,16 @@ let initialBoard = {
 					panel_title: "Panel A of board 2",
 					panel_ID: "2A",
 					notes: [
-						"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-						" TWO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet risus vel felis vestibulum luctus. Maecenas ac ante commodo, tristique turpis a, faucibus orci. Proin ornare convallis tellus, eu consequat augue lobortis ut. Sed iaculis egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-						" THREE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						{
+							note_ID: "2A-1",
+							note:
+								"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						},
+						{
+							note_ID: "2A-2",
+							note:
+								" TWO Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit amet risus vel felis vestibulum luctus. Maecenas ac ante commodo, tristique turpis a, faucibus orci. Proin ornare convallis tellus, eu consequat augue lobortis ut. Sed iaculis egestas elementum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						}
 					]
 				}
 			]

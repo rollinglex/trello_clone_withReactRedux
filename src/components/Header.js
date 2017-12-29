@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import logo from "../img/logo.svg";
 
 const Header = ({ username }) => {
-	console.log(username);
 	return (
 		<header className="header">
 			<div className="logo">
@@ -16,5 +15,7 @@ const Header = ({ username }) => {
 	);
 };
 
-Header.propTypes = {};
+Header.propTypes = {
+	username: PropTypes.string.isRequired
+};
 export default Header;

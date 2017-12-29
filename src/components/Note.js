@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Note = ({ content, key }) => {
+const Note = ({ content, id }) => {
 	return (
-		<p key={key} className="note">
+		<p key={id + 1} className="note">
 			{content}
 		</p>
 	);

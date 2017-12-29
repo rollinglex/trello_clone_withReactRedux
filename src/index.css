@@ -96,8 +96,37 @@ Panel
 
 .add-panel-container {
 	background-color: #67f9e7;
+	height: 4rem;
+	border-radius: 4px;
+	display: flex;
+	padding: 0 0.8rem;
+}
+.add-panel-container input {
+	overflow: visible;
+	height: 50%;
+	align-self: center;
+	background-color: #67f9e7;
+	border: none;
+	color: #867676;
+	padding-left: 0.5rem;
+	border-radius: 3px;
+}
+.add-panel-container button {
+	display: none;
+	height: 2rem;
+	align-self: center;
+	margin-left: 0.8rem;
+}
+.add-panel-container:hover > input,
+.add-panel-container input:focus {
+	background-color: #c5fff8;
+	color: #121212;
 }
 
+.add-panel-container:hover > button,
+.add-panel-container input:focus + button {
+	display: inline-block;
+}
 /**********************************
 Notes
 ***********************************/

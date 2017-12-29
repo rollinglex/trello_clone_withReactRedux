@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import BoardSelect from "../components/BoardSelect";
-import { board } from "../actions";
+import { boards } from "../actions";
 //returns the titles of each board to populate Board Select element
 function getBoardTitles(boards) {
 	return boards.map(board => {
@@ -38,7 +38,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleChange: boardTitle => {
 			console.log("in board select", boardTitle);
-			dispatch(board(boardTitle));
+			dispatch(boards(boardTitle));
 		}
 	};
 };

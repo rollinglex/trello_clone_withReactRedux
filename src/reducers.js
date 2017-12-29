@@ -10,6 +10,8 @@ function sample(state = {}, action) {
 			return state;
 	}
 }
+
+//replicates data coming in when user logs in
 let initialUserState = {
 	username: board.user.username,
 	first_name: board.user.first_name,
@@ -25,13 +27,10 @@ function user(state = initialUserState, action) {
 
 //board on display
 function boardToShow(state = board.boards[0], action) {
+	console.log("In reducer", action.data);
 	switch (action.type) {
 		case BOARD_TO_SHOW:
-			let selectedBoard = board.boards.filter(
-				board => board.board_title === action.data
-			);
-
-			return selectedBoard[0];
+			return action.data;
 		default:
 			return state;
 	}

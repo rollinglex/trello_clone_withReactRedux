@@ -5,14 +5,22 @@ import Note from "../components/Note";
 
 function getNotes(notesArray) {
 	return notesArray.map((note, i) => {
-		return <Note key={`note_${i}`} content={note} />;
+		return <Note key={note.note_ID} id={i} content={note.note} />;
 	});
 }
 
 class NoteContainer extends Component {
 	notes = getNotes(this.props.notesArray);
 	render() {
-		return <div className="note-container">{this.notes}</div>;
+		return (
+			<div className="note-container">
+				{this.notes}
+				<div className="addNote">
+					<input type="text" value="Add Note" />
+					<button className="addNoteBtn"> &#9998;</button>
+				</div>
+			</div>
+		);
 	}
 }
 

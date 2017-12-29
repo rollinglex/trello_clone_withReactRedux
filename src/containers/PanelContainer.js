@@ -28,7 +28,7 @@ class PanelContainer extends Component {
 			<section className="panel-container">
 				<Panel children={this.panelCards()} />
 				<div className="add-panel-container">
-					<input type="text" />
+					<input type="text" value="add a panel" />
 					<button>Add</button>
 				</div>
 			</section>
