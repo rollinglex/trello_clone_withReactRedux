@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
+import update from "immutability-helper";
 import board from "./initialBoard";
-import { BOARD_TO_SHOW, USER, SAMPLE } from "./actions";
+import { BOARD_TO_SHOW, USER, ADD_NOTE, SAMPLE } from "./actions";
 
 function sample(state = {}, action) {
 	switch (action.type) {
@@ -30,6 +31,7 @@ function boardToShow(state = board.boards[0], action) {
 	switch (action.type) {
 		case BOARD_TO_SHOW:
 			return action.data;
+
 		default:
 			return state;
 	}
@@ -38,10 +40,19 @@ function boardToShow(state = board.boards[0], action) {
 //array of all boards
 function allBoards(state = board.boards, action) {
 	switch (action.type) {
+		case ADD_NOTE:
+			return state;
 		default:
 			return state;
 	}
 }
+
+//add new note
+function addNote(state = "", action) {
+	switch (action.type) {
+	}
+}
+
 export const djelloApp = combineReducers({
 	sample,
 	user,

@@ -143,6 +143,12 @@ Notes
 /**********************************
 Add note component
 ***********************************/
+.addNoteLink {
+	color: #708c8c;
+}
+.addNoteLink:hover {
+	text-decoration: underline;
+}
 .addNote textarea {
 	background-color: #f3f3f3;
 	color: #708c8c;
@@ -151,14 +157,12 @@ Add note component
 	padding: 6px;
 	border: none;
 	resize: none;
-}
-.addNote textarea:focus {
 	outline-color: #8adfd4;
 	outline-style: double;
 }
-.addNote textarea:focus ~ button {
-	display: inline-block;
+.addNote textarea:blur {
 }
+
 .addNote button {
-	display: none;
+	ddisplay: none;
 }
