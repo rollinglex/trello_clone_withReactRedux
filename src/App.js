@@ -1,23 +1,29 @@
 import React, { Component } from "react";
-import HeaderContainer from "./containers/HeaderContainer";
-import BoardContainer from "./containers/BoardContainer";
-import Footer from "./components/Footer";
+import { BrowserRouter, Route, NavLink, Switch, Link } from "react-router-dom";
+import LoginContainer from "./containers/LoginContainer";
+import BoardPageContainer from "./containers/BoardPageContainer";
 
-class App extends Component {
-	render() {
-		return (
-			<div className="App">
-				<HeaderContainer />
-				<BoardContainer />
-				<Footer />
-			</div>
-		);
-	}
-}
+const App = () => (
+	<BrowserRouter>
+		<Switch>
+			<Route
+				exact
+				path="/"
+				render={() => {
+					return <LoginContainer />;
+				}}
+			/>
+			<Route path="/board" component={BoardPageContainer} />
+		</Switch>
+	</BrowserRouter>
+);
 
 export default App;
 
 /******
+
+
+
 object schema
 
 User: {

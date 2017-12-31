@@ -4,7 +4,7 @@ export const USER = "USER";
 export const BOARD_TO_SHOW = "BOARD_TO_SHOW";
 export const NOTE_VALUE = "NOTE_VALUE";
 export const ADD_NOTE = "ADD_NOTE";
-
+export const INITIAL_BOARD = "INITIAL_BOARD";
 export function sample(data) {
 	return {
 		type: SAMPLE,
@@ -15,14 +15,14 @@ export function sample(data) {
 export function user(data) {
 	return {
 		type: USER,
-		data
+		data: data
 	};
 }
 
 //gets proper board based on board title passed in
 //data coming in is the board_title in board object
 //board imported is replicating data from database
-export function boards(data) {
+export function getBoardOnTitle(data) {
 	let selectedBoard = board.boards.filter(board => board.board_title === data);
 	return {
 		type: BOARD_TO_SHOW,
@@ -46,4 +46,8 @@ export function addNote(data, id) {
 		type: ADD_NOTE,
 		data
 	};
+}
+
+export function login() {
+	getBoardOnTitle(board.boards[0].board_title);
 }

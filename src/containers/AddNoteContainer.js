@@ -13,7 +13,6 @@ class AddNoteContainer extends Component {
 		};
 	}
 	handleValueChange = e => {
-		console.log(e.target.value);
 		this.setState({ newNote: e.target.value });
 	};
 	handleClick = e => {

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import Board from "../components/Board";
 import BoardHeader from "../components/BoardHeader";
 
@@ -27,4 +28,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 BoardContainer.propTypes = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(BoardContainer);
+export default withRouter(
+	connect(mapStateToProps, mapDispatchToProps)(BoardContainer)
+);
