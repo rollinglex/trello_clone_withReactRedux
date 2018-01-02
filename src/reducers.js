@@ -1,21 +1,6 @@
 import { combineReducers } from "redux";
 import board from "./initialBoard";
-import {
-	INITIAL_BOARD,
-	BOARD_TO_SHOW,
-	USER,
-	ADD_NOTE,
-	SAMPLE
-} from "./actions";
-
-function sample(state = {}, action) {
-	switch (action.type) {
-		case SAMPLE:
-			return action.data;
-		default:
-			return state;
-	}
-}
+import { INITIAL_BOARD, BOARD_ON_TITLE, USER, ADD_NOTE } from "./actions";
 
 //replicates data coming in when user logs in
 //let initialUserState =
@@ -33,7 +18,7 @@ function user(state = {}, action) {
 function boardToShow(state = {}, action) {
 	console.log("In Reducer", action.data);
 	switch (action.type) {
-		case BOARD_TO_SHOW:
+		case BOARD_ON_TITLE:
 			return action.data;
 
 		default:

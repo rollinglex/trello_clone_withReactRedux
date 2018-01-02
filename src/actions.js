@@ -1,16 +1,9 @@
 import board from "./initialBoard";
-export const SAMPLE = "SAMPLE";
 export const USER = "USER";
-export const BOARD_TO_SHOW = "BOARD_TO_SHOW";
+export const BOARD_ON_TITLE = "BOARD_ON_TITLE";
 export const NOTE_VALUE = "NOTE_VALUE";
 export const ADD_NOTE = "ADD_NOTE";
 export const INITIAL_BOARD = "INITIAL_BOARD";
-export function sample(data) {
-	return {
-		type: SAMPLE,
-		data
-	};
-}
 
 export function user(data) {
 	return {
@@ -25,7 +18,7 @@ export function user(data) {
 export function getBoardOnTitle(data) {
 	let selectedBoard = board.boards.filter(board => board.board_title === data);
 	return {
-		type: BOARD_TO_SHOW,
+		type: BOARD_ON_TITLE,
 		data: selectedBoard[0]
 	};
 }

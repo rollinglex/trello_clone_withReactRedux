@@ -7,6 +7,7 @@ import BoardHeader from "../components/BoardHeader";
 
 class BoardContainer extends Component {
 	render() {
+		console.log("STATE", this.props.state);
 		return (
 			<div className="board-wrapper">
 				<BoardHeader boardTitle={this.props.boardTitle} />
@@ -18,6 +19,7 @@ class BoardContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
+		state: state,
 		boardTitle: state.boardToShow.board_title
 	};
 };

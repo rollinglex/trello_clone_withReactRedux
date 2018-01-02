@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import Panel from "../components/Panel";
 import NoteContainer from "./NoteContainer";
 //creates panels from array
@@ -34,6 +35,7 @@ class PanelContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+	console.log(state);
 	return {
 		panelsArray: state.boardToShow.panels,
 		numberOfPanels: state.boardToShow.panels.length
@@ -46,4 +48,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 PanelContainer.propTypes = {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(PanelContainer);
+export default withRouter(
+	connect(mapStateToProps, mapDispatchToProps)(PanelContainer)
+);
