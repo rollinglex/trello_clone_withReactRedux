@@ -8,7 +8,6 @@ const AddNewBoard = ({
 	handleClose,
 	resetState
 }) => {
-	console.log(handleClose);
 	return (
 		<div className="AddNewBoard-wrapper">
 			<input
@@ -16,7 +15,12 @@ const AddNewBoard = ({
 				value={newBoardTitle}
 				onChange={e => handleValueChange(e)}
 			/>
-			<button className="addBtn" onClick={newBoardTitle => addBoard()}>
+			<button
+				className="addBoardBtn"
+				onClick={() => {
+					addBoard(newBoardTitle);
+					resetState();
+				}}>
 				{" "}
 				&#9998;
 			</button>

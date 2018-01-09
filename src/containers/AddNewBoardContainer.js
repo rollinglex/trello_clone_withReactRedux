@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import AddNewBoard from "../components/AddNewBoard";
+import { addBoard } from "../actions";
 
 class AddNewBoardContainer extends Component {
 	constructor(props) {
@@ -23,6 +24,7 @@ class AddNewBoardContainer extends Component {
 			};
 		});
 	};
+
 	resetState = () => {
 		this.setState({
 			newBoardTitle: "",
@@ -37,6 +39,8 @@ class AddNewBoardContainer extends Component {
 			<AddNewBoard
 				newBoardTitle={this.state.newBoardTitle}
 				handleValueChange={e => this.handleValueChange(e)}
+				addBoard={title =>
+					this.props.handleAddBoard(title, this.props.prevBoards)}
 				handleClose={() => this.handleClick()}
 				resetState={() => this.resetState()}
 			/>
@@ -45,11 +49,18 @@ class AddNewBoardContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	return {};
+	return {
+		prevBoards: state.allBoards
+	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	return {};
+	return {
+		handleAddBoard: (newTitle, oldBoards) => {
+			console.log(oldBoards);
+			dispatch(addBoard(newTitle, oldBoards));
+		}
+	};
 };
 
 AddNewBoardContainer.propTypes = {};

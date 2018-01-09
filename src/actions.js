@@ -17,35 +17,44 @@ export function user(data) {
 //data coming in is the board_title in board object
 //selectedBoard finds proper board and returns and array of 1.
 //board imported is replicating data from database
-export function getBoardOnTitle(data) {
-	let selectedBoard = board.boards.filter(board => board.board_title === data);
+export function getBoardOnTitle(data, boards = board.boards) {
+	console.log("in Action:", data);
+	console.log("in Action2:", boards);
+	console.log("in Action initial:", board);
+	let selectedBoard = boards.filter(board => board.board_title === data);
 	return {
 		type: BOARD_ON_TITLE,
 		data: selectedBoard[0]
 	};
 }
 
-//Adds new board with new title
-export function addBoard() {
-	return {
-		type: ADD_BOARD,
-		data: {
-			board_title: "Board 1",
-			board_id: 1,
+function newBoard(newTitle, boards) {
+	return [
+		...boards,
+		{
+			board_title: newTitle,
+			board_id: `${newTitle}-1`,
 			panels: [
 				{
-					panel_title: "Panel A",
+					panel_title: "Panel title",
 					panel_ID: "1A",
 					notes: [
 						{
 							note_ID: "1A-1",
-							note:
-								"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+							note: " "
 						}
 					]
 				}
 			]
 		}
+	];
+}
+
+//Adds new board with new title
+export function addBoard(newTitle, boards) {
+	return {
+		type: ADD_BOARD,
+		data: newBoard(newTitle, boards)
 	};
 }
 

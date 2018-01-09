@@ -9,7 +9,7 @@ import { getBoardOnTitle } from "../actions";
 class BoardContainer extends Component {
 	constructor(props) {
 		super(props);
-		console.log("hi", this.props.boardTitle);
+
 		this.props.setInitialBoard(this.props.boardTitle);
 	}
 

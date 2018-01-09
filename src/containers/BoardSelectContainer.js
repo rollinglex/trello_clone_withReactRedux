@@ -5,22 +5,23 @@ import BoardSelect from "../components/BoardSelect";
 import { getBoardOnTitle } from "../actions";
 //returns the titles of each board to populate Board Select element
 function getBoardTitles(boards) {
-	return boards.map(board => {
+	return boards.map((eachBoard, i) => {
 		return (
-			<option key={board.board_id} value={board.board_title}>
-				{board.board_title}
+			<option key={i} value={eachBoard.board_title}>
+				{eachBoard.board_title}
 			</option>
 		);
 	});
 }
 
 class BoardSelectContainer extends Component {
-	title = getBoardTitles(this.props.boards);
 	render() {
+		console.log(this.props.selection);
 		return (
 			<BoardSelect
-				children={this.title}
-				onChange={e => this.props.handleChange(e.target.value)}
+				children={getBoardTitles(this.props.boards)}
+				onChange={e =>
+					this.props.handleChange(e.target.value, this.props.boards)}
 				selection={this.props.selection}
 			/>
 		);
@@ -30,15 +31,16 @@ class BoardSelectContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
 	return {
 		boards: state.allBoards,
+		first: state.allBoards[0],
 		selection: state.selected
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		handleChange: boardTitle => {
-			console.log("in board select", boardTitle);
-			dispatch(getBoardOnTitle(boardTitle));
+		handleChange: (boardTitle, boards) => {
+			console.log(boardTitle);
+			dispatch(getBoardOnTitle(boardTitle, boards));
 		}
 	};
 };

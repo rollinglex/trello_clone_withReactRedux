@@ -21,7 +21,7 @@ function user(state = {}, action) {
 }
 
 //board on display
-function boardToShow(state = {}, action) {
+function boardToShow(state = board, action) {
 	console.log("In Reducer", action.data);
 	switch (action.type) {
 		case BOARD_ON_TITLE:
@@ -36,7 +36,7 @@ function boardToShow(state = {}, action) {
 function allBoards(state = board.boards, action) {
 	switch (action.type) {
 		case ADD_BOARD:
-			return [...state, action.data];
+			return action.data;
 		case ADD_NOTE:
 			return state;
 		default:
