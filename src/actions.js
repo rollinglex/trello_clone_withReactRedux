@@ -4,6 +4,7 @@ export const BOARD_ON_TITLE = "BOARD_ON_TITLE";
 export const NOTE_VALUE = "NOTE_VALUE";
 export const ADD_NOTE = "ADD_NOTE";
 export const INITIAL_BOARD = "INITIAL_BOARD";
+export const ADD_BOARD = "ADD_BOARD";
 
 export function user(data) {
 	return {
@@ -21,6 +22,30 @@ export function getBoardOnTitle(data) {
 	return {
 		type: BOARD_ON_TITLE,
 		data: selectedBoard[0]
+	};
+}
+
+//Adds new board with new title
+export function addBoard() {
+	return {
+		type: ADD_BOARD,
+		data: {
+			board_title: "Board 1",
+			board_id: 1,
+			panels: [
+				{
+					panel_title: "Panel A",
+					panel_ID: "1A",
+					notes: [
+						{
+							note_ID: "1A-1",
+							note:
+								"ONE Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+						}
+					]
+				}
+			]
+		}
 	};
 }
 

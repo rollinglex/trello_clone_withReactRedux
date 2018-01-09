@@ -23,6 +23,12 @@ class AddNewBoardContainer extends Component {
 			};
 		});
 	};
+	resetState = () => {
+		this.setState({
+			newBoardTitle: "",
+			addingBoard: false
+		});
+	};
 	render() {
 		if (this.state.addingBoard === false) {
 			return <p onClick={() => this.handleClick()}>Add New Board</p>;
@@ -31,7 +37,8 @@ class AddNewBoardContainer extends Component {
 			<AddNewBoard
 				newBoardTitle={this.state.newBoardTitle}
 				handleValueChange={e => this.handleValueChange(e)}
-				handleClick={() => this.handleClick()}
+				handleClose={() => this.handleClick()}
+				resetState={() => this.resetState()}
 			/>
 		);
 	}
