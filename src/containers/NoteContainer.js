@@ -11,12 +11,10 @@ function getNotes(notesArray) {
 }
 
 class NoteContainer extends Component {
-	notes = getNotes(this.props.notesArray);
-
 	render() {
 		return (
 			<div className="note-container">
-				{this.notes}
+				{getNotes(this.props.notesArray)}
 				<AddNoteContainer panelID={this.props.panelID} />
 			</div>
 		);
