@@ -4,10 +4,17 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Board from "../components/Board";
 import BoardHeader from "../components/BoardHeader";
+import { getBoardOnTitle } from "../actions";
 
 class BoardContainer extends Component {
+	constructor(props) {
+		super(props);
+		console.log("hi", this.props.boardTitle);
+		this.props.setInitialBoard(this.props.boardTitle);
+	}
+
 	render() {
-		console.log("STATE", this.props.state);
+		console.log("STATE in Render", this.props.state);
 		return (
 			<div className="board-wrapper">
 				<BoardHeader boardTitle={this.props.boardTitle} />
@@ -25,7 +32,9 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	return {};
+	return {
+		setInitialBoard: title => dispatch(getBoardOnTitle(title))
+	};
 };
 
 BoardContainer.propTypes = {};

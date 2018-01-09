@@ -43,7 +43,6 @@ function addNote(state = "", action) {
 }
 
 export const djelloApp = combineReducers({
-	sample,
 	user,
 	boardToShow,
 	allBoards

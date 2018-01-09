@@ -14,6 +14,7 @@ export function user(data) {
 
 //gets proper board based on board title passed in
 //data coming in is the board_title in board object
+//selectedBoard finds proper board and returns and array of 1.
 //board imported is replicating data from database
 export function getBoardOnTitle(data) {
 	let selectedBoard = board.boards.filter(board => board.board_title === data);
