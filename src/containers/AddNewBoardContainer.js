@@ -8,36 +8,35 @@ class AddNewBoardContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newBoardTitle: "",
-			addingBoard: false
+			newTitle: "",
+			addingNew: false
 		};
 	}
 	handleValueChange = e => {
-		console.log(e.target.value);
-		this.setState({ newBoardTitle: e.target.value });
+		this.setState({ newTitle: e.target.value });
 	};
 	handleClick = () => {
 		this.setState((prevState, props) => {
 			return {
 				...this.state,
-				addingBoard: !prevState.addingBoard
+				addingNew: !prevState.addingNew
 			};
 		});
 	};
 
 	resetState = () => {
 		this.setState({
-			newBoardTitle: "",
-			addingBoard: false
+			newTitle: "",
+			addingNew: false
 		});
 	};
 	render() {
-		if (this.state.addingBoard === false) {
+		if (this.state.addingNew === false) {
 			return <p onClick={() => this.handleClick()}>Add New Board</p>;
 		}
 		return (
 			<AddNewBoard
-				newBoardTitle={this.state.newBoardTitle}
+				newTitle={this.state.newTitle}
 				handleValueChange={e => this.handleValueChange(e)}
 				addBoard={title =>
 					this.props.handleAddBoard(title, this.props.prevBoards)}

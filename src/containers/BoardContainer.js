@@ -12,7 +12,9 @@ class BoardContainer extends Component {
 
 		this.props.setInitialBoard(this.props.boardTitle);
 	}
-
+	componentWillUpdate() {
+		console.log("componentWillUpdate", this.props);
+	}
 	render() {
 		console.log("STATE in Render", this.props.state);
 		return (

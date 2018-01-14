@@ -16,7 +16,6 @@ function getBoardTitles(boards) {
 
 class BoardSelectContainer extends Component {
 	render() {
-		console.log(this.props.selection);
 		return (
 			<BoardSelect
 				children={getBoardTitles(this.props.boards)}
@@ -31,7 +30,6 @@ class BoardSelectContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
 	return {
 		boards: state.allBoards,
-		first: state.allBoards[0],
 		selection: state.selected
 	};
 };
@@ -39,7 +37,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleChange: (boardTitle, boards) => {
-			console.log(boardTitle);
 			dispatch(getBoardOnTitle(boardTitle, boards));
 		}
 	};

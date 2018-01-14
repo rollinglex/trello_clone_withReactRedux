@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Panel from "../components/Panel";
+import AddPanelContainer from "./AddPanelContainer";
 import NoteContainer from "./NoteContainer";
 //creates panels from array
 const getPanels = panelArray => {
@@ -19,26 +20,24 @@ const getPanels = panelArray => {
 };
 
 class PanelContainer extends Component {
-	numberOfPanels = this.props.numberOfPanels;
 	panelCards = () => getPanels(this.props.panelsArray);
 	render() {
+		this.panelCards();
+		console.log("PanelContainer", this.props.panelsArray.length);
 		return (
 			<section className="panel-container">
-				<Panel children={this.panelCards()} />
-				<div className="add-panel-container">
-					<input type="text" value="add a panel" />
-					<button>Add</button>
-				</div>
+				<Panel children={this.panelCards()} boards={this.boards} />
+				<AddPanelContainer />
 			</section>
 		);
 	}
 }
 
 const mapStateToProps = (state, ownProps) => {
-	console.log(state);
+	console.log("board to Show", state.boardToShow);
 	return {
 		panelsArray: state.boardToShow.panels,
-		numberOfPanels: state.boardToShow.panels.length
+		boards: state.allBoards
 	};
 };
 

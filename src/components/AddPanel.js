@@ -1,24 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const AddNewBoard = ({
-	newTitle,
+const AddPanel = ({
 	handleValueChange,
-	addBoard,
 	handleClose,
-	resetState
+	addPanel,
+	resetState,
+	title,
+	board_id,
+	allBoards,
+	boardTitle
 }) => {
 	return (
-		<div className="AddNewBoard-wrapper">
-			<input
-				type="text"
-				value={newTitle}
-				onChange={e => handleValueChange(e)}
-			/>
+		<div className="add-panel-container">
+			<input type="text" value={title} onChange={e => handleValueChange(e)} />
 			<button
-				className="addBoardBtn"
+				className="addPanelBtn"
 				onClick={() => {
-					addBoard(newTitle);
+					addPanel(title, board_id, allBoards, boardTitle);
 					resetState();
 				}}>
 				{" "}
@@ -36,5 +35,5 @@ const AddNewBoard = ({
 	);
 };
 
-AddNewBoard.propTypes = {};
-export default AddNewBoard;
+AddPanel.propTypes = {};
+export default AddPanel;
