@@ -35,7 +35,6 @@ function boardToShow(state = {}, action) {
 
 //array of all boards
 function allBoards(state = board.boards, action) {
-	console.log("In Reducer", action.data);
 	switch (action.type) {
 		case ADD_BOARD:
 			return action.data;

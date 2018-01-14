@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import Panel from "../components/Panel";
 import AddPanelContainer from "./AddPanelContainer";
 import NoteContainer from "./NoteContainer";
+import { getBoardOnTitle } from "../actions";
 //creates panels from array
 const getPanels = panelArray => {
 	return panelArray.map(panel => {
@@ -21,12 +22,18 @@ const getPanels = panelArray => {
 
 class PanelContainer extends Component {
 	panelCards = () => getPanels(this.props.panelsArray);
+
+	componentWillReceiveProps(nextProps) {
+		this.props.reloadPanel(
+			this.props.currentBoard.board_title,
+			nextProps.boards
+		);
+	}
 	render() {
 		this.panelCards();
-		console.log("PanelContainer", this.props.panelsArray.length);
 		return (
 			<section className="panel-container">
-				<Panel children={this.panelCards()} boards={this.boards} />
+				<Panel children={this.panelCards()} />
 				<AddPanelContainer />
 			</section>
 		);
@@ -34,15 +41,20 @@ class PanelContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	console.log("board to Show", state.boardToShow);
 	return {
 		panelsArray: state.boardToShow.panels,
+		currentBoard: state.boardToShow,
 		boards: state.allBoards
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	return {};
+	return {
+		reloadPanel: (boardTitle, allBoards) => {
+			console.log("reloading", allBoards);
+			dispatch(dispatch(getBoardOnTitle(boardTitle, allBoards)));
+		}
+	};
 };
 
 PanelContainer.propTypes = {};

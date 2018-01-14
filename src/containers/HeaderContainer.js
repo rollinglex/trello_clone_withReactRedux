@@ -11,7 +11,6 @@ class HeaderContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-	console.log(state);
 	return {
 		username: state.user.username
 	};

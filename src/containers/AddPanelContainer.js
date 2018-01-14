@@ -66,7 +66,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleAddPanel: (newTitle, board_id, allBoards, boardTitle) => {
 			dispatch(addPanel(newTitle, board_id, allBoards));
-			dispatch(getBoardOnTitle(boardTitle, allBoards));
+			//dispatch(getBoardOnTitle(boardTitle, allBoards));
 		}
 	};
 };

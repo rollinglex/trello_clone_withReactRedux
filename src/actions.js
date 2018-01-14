@@ -67,6 +67,7 @@ export function addBoard(newTitle, boards) {
 }
 function newPanel(newTitle, board_id, allBoards) {
 	return allBoards.map((board, i) => {
+		//console.log("in panel function", allBoards);
 		if (board.board_id === board_id) {
 			return {
 				...board,
