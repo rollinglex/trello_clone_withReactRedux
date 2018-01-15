@@ -4,19 +4,18 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import Board from "../components/Board";
 import BoardHeader from "../components/BoardHeader";
-import { getBoardOnTitle } from "../actions";
+import { getBoardOnId } from "../actions";
 
 class BoardContainer extends Component {
 	constructor(props) {
 		super(props);
 
-		this.props.setInitialBoard(this.props.boardTitle);
+		this.props.setInitialBoard(this.props.boardId);
 	}
-	componentWillUpdate() {}
 	render() {
 		return (
 			<div className="board-wrapper">
-				<BoardHeader boardTitle={this.props.boardTitle} />
+				<BoardHeader boardId={this.props.boardId} />
 				<Board />
 			</div>
 		);
@@ -26,13 +25,13 @@ class BoardContainer extends Component {
 const mapStateToProps = (state, ownProps) => {
 	return {
 		state: state,
-		boardTitle: state.boardToShow.board_title
+		boardId: state.boardToShow.board_id
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		setInitialBoard: title => dispatch(getBoardOnTitle(title))
+		setInitialBoard: id => dispatch(getBoardOnId(id))
 	};
 };
 

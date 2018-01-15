@@ -20,7 +20,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {};
 };
 
-HeaderContainer.propTypes = {};
+HeaderContainer.propTypes = {
+	username: PropTypes.string.required
+};
 
 export default withRouter(
 	connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)

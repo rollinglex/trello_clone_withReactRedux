@@ -22,7 +22,7 @@ function user(state = {}, action) {
 }
 
 //board on display
-function boardToShow(state = {}, action) {
+function boardToShow(state = board.boards[0], action) {
 	console.log("boardToShow Reducer", action);
 	console.log("Type", action.type);
 	switch (action.type) {

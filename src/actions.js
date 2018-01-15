@@ -27,6 +27,14 @@ export function getBoardOnTitle(data, boards = board.boards) {
 		data: selectedBoard[0]
 	};
 }
+export function getBoardOnId(data, boards = board.boards) {
+	let selectedBoard = boards.filter(board => board.board_id === data);
+	console.log("NEW BOARD");
+	return {
+		type: BOARD_ON_TITLE,
+		data: selectedBoard[0]
+	};
+}
 export function rerenderBoardShown(id, allBoards) {
 	console.log("in Action:", allBoards);
 	let selectedBoard = allBoards.filter(board => board.board_id === id);

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import HeaderContainer from "./HeaderContainer";
 import BoardContainer from "./BoardContainer";
@@ -23,7 +22,5 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {};
 };
-
-BoardPageContainer.propTypes = {};
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoardPageContainer);
