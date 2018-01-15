@@ -24,10 +24,19 @@ class PanelContainer extends Component {
 	panelCards = () => getPanels(this.props.panelsArray);
 
 	componentWillReceiveProps(nextProps) {
-		this.props.reloadPanel(
-			this.props.currentBoard.board_title,
-			nextProps.boards
-		);
+		// console.log("RecieverProps");
+		// let nextBoard = nextProps.boards.filter(board => {
+		// 	console.log("HEERRE", this.props.currentBoard.board_title);
+		// 	console.log(board.board_title);
+		// 	board.board_title === this.props.currentBoard.board_title;
+		// });
+		// console.log(nextBoard);
+		// if (this.props.currentBoard.panels.length < nextBoard[0].panels.length) {
+		// this.props.reloadPanel(
+		// 	this.props.currentBoard.board_title,
+		// 	nextProps.boards
+		// );
+		//}
 	}
 	render() {
 		this.panelCards();

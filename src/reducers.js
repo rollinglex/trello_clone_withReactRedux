@@ -23,6 +23,8 @@ function user(state = {}, action) {
 
 //board on display
 function boardToShow(state = {}, action) {
+	console.log("boardToShow Reducer", action);
+	console.log("Type", action.type);
 	switch (action.type) {
 		case BOARD_ON_TITLE:
 			return action.data;
@@ -35,6 +37,9 @@ function boardToShow(state = {}, action) {
 
 //array of all boards
 function allBoards(state = board.boards, action) {
+	console.log("All Boards Reducer", action);
+	console.log("Type", action.type);
+
 	switch (action.type) {
 		case ADD_BOARD:
 			return action.data;
