@@ -8,9 +8,6 @@ import { user, getBoardOnTitle } from "../actions";
 
 class LoginContainer extends Component {
 	render() {
-		(() => {
-			console.log("hi");
-		})();
 		return (
 			<div>
 				<h1>HOME</h1>

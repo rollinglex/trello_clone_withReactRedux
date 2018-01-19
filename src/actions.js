@@ -60,6 +60,7 @@ function newBoard(newTitle, boards) {
 
 //Adds new board with new title
 export function addBoard(newTitle, boards) {
+	console.log("Adding new Board");
 	return {
 		type: ADD_BOARD,
 		data: newBoard(newTitle, boards)

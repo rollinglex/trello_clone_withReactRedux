@@ -56,7 +56,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleAddBoard: (newTitle, oldBoards) => {
-			console.log(oldBoards);
 			dispatch(addBoard(newTitle, oldBoards));
 		}
 	};

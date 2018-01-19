@@ -22,13 +22,12 @@ function user(state = {}, action) {
 }
 
 //board on display
+////CurrentBoard
 function boardToShow(state = {}, action) {
 	console.log("boardToShow Reducer", action);
 	console.log("Type", action.type);
 	switch (action.type) {
 		case BOARD_ON_TITLE:
-			return action.data;
-		case RERENDER_BOARD:
 			return action.data;
 		default:
 			return state;
