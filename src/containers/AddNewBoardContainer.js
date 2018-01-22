@@ -24,7 +24,7 @@ class AddNewBoardContainer extends Component {
 		});
 	};
 
-	resetState = () => {
+	resetForm = () => {
 		this.setState({
 			newTitle: "",
 			addingNew: false
@@ -41,7 +41,7 @@ class AddNewBoardContainer extends Component {
 				addBoard={title =>
 					this.props.handleAddBoard(title, this.props.prevBoards)}
 				handleClose={() => this.handleClick()}
-				resetState={() => this.resetState()}
+				resetForm={() => this.resetForm()}
 			/>
 		);
 	}
@@ -56,13 +56,15 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		handleAddBoard: (newTitle, oldBoards) => {
-			console.log(oldBoards);
 			dispatch(addBoard(newTitle, oldBoards));
 		}
 	};
 };
 
-AddNewBoardContainer.propTypes = {};
+AddNewBoardContainer.propTypes = {
+	handleAddBoard: PropTypes.func.isRequired,
+	prevBoards: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(
 	AddNewBoardContainer

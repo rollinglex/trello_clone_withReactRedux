@@ -1,4 +1,4 @@
-let initialBoard = {
+const initialBoard = {
 	user: {
 		first_name: "Alex",
 		last_name: "Thomas",

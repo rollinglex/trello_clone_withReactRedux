@@ -6,7 +6,7 @@ const AddNewBoard = ({
 	handleValueChange,
 	addBoard,
 	handleClose,
-	resetState
+	resetForm
 }) => {
 	return (
 		<div className="AddNewBoard-wrapper">
@@ -19,7 +19,7 @@ const AddNewBoard = ({
 				className="addBoardBtn"
 				onClick={() => {
 					addBoard(newTitle);
-					resetState();
+					resetForm();
 				}}>
 				{" "}
 				&#10010;
@@ -28,7 +28,7 @@ const AddNewBoard = ({
 				className="closeAddBtn"
 				onClick={() => {
 					handleClose();
-					resetState();
+					resetForm();
 				}}>
 				&#9747;
 			</button>

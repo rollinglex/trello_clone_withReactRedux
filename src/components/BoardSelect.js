@@ -1,13 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const BoardSelect = ({ children, onChange, selection }) => {
-	return (
-		<select onChange={onChange} value={selection}>
-			{children}
-		</select>
-	);
+const BoardSelect = ({ children, onSelect }) => {
+	return <select onChange={e => onSelect(e)}>{children}</select>;
 };
 
-BoardSelect.propTypes = {};
+BoardSelect.propTypes = {
+	onSelect: PropTypes.func.isRequired
+};
 export default BoardSelect;

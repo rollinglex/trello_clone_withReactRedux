@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import board from "../initialBoard";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { user, getBoardOnTitle, getBoardOnId } from "../actions";
+import { user } from "../actions";
 //import  from "./"
 
 class LoginContainer extends Component {
@@ -38,11 +38,12 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
 		onClickHandler: () => {
 			dispatch(user(initialUserState));
-			dispatch(getBoardOnId(1));
 		}
 	};
 };
 
-LoginContainer.propTypes = {};
+LoginContainer.propTypes = {
+	onClickHandler: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

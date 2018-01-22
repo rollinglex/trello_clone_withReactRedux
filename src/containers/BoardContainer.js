@@ -1,42 +1,37 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import Board from "../components/Board";
 import BoardHeader from "../components/BoardHeader";
-import { getBoardOnId } from "../actions";
 
+//in constructor, sets the inital board rendered
 class BoardContainer extends Component {
-	constructor(props) {
-		super(props);
+	///////
 
-		this.props.setInitialBoard(this.props.boardId);
-	}
 	render() {
 		return (
 			<div className="board-wrapper">
-				<BoardHeader boardId={this.props.boardId} />
-				<Board />
+				<BoardHeader
+					title={this.props.title}
+					handleSelect={id => this.props.handleSelect(id)}
+				/>
+				<Board
+					boardToShow={this.props.boardToShow}
+					handleSelect={id => this.props.handleSelect(id)}
+				/>
 			</div>
 		);
 	}
 }
 
 const mapStateToProps = (state, ownProps) => {
-	return {
-		state: state,
-		boardId: state.boardToShow.board_id
-	};
+	return {};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		setInitialBoard: id => dispatch(getBoardOnId(id))
-	};
+	return {};
 };
 
 BoardContainer.propTypes = {};
 
-export default withRouter(
-	connect(mapStateToProps, mapDispatchToProps)(BoardContainer)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(BoardContainer);

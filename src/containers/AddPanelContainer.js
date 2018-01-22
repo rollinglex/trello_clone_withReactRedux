@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import AddPanel from "../components/AddPanel";
-import { addPanel, getBoardOnTitle } from "../actions";
+import { addPanel } from "../actions";
 
 class AddPanelContainer extends Component {
 	//addingNew state may not be needed
@@ -24,7 +24,7 @@ class AddPanelContainer extends Component {
 			};
 		});
 	};
-	resetState = () => {
+	resetForm = () => {
 		this.setState({
 			newTitle: "",
 			addingNew: false
@@ -43,12 +43,12 @@ class AddPanelContainer extends Component {
 				handleValueChange={e => this.handleValueChange(e)}
 				title={this.state.newTitle}
 				allBoards={this.props.allBoards}
-				boardTitle={this.props.boardTitle}
-				board_id={this.props.board_id}
+				boardTitle={this.props.board.boardTitle}
+				boardId={this.props.board.board_id}
 				addPanel={(title, board, allBoards, boardTitle) =>
 					this.props.handleAddPanel(title, board, allBoards, boardTitle)}
 				handleClose={() => this.handleClick()}
-				resetState={() => this.resetState()}
+				resetForm={() => this.resetForm()}
 			/>
 		);
 	}
@@ -56,21 +56,23 @@ class AddPanelContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		board_id: state.boardToShow.board_id,
-		boardTitle: state.boardToShow.board_title,
 		allBoards: state.allBoards
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		handleAddPanel: (newTitle, board_id, allBoards, boardTitle) => {
-			dispatch(addPanel(newTitle, board_id, allBoards));
+		handleAddPanel: (newTitle, boardId, allBoards, boardTitle) => {
+			dispatch(addPanel(newTitle, boardId, allBoards));
 			//dispatch(getBoardOnTitle(boardTitle, allBoards));
+			ownProps.handleSelect(boardId);
 		}
 	};
 };
 
-AddPanelContainer.propTypes = {};
+AddPanelContainer.propTypes = {
+	allBoards: PropTypes.array.isRequired,
+	handleAddPanel: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddPanelContainer);

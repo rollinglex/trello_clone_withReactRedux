@@ -19,29 +19,3 @@ const App = () => (
 );
 
 export default App;
-
-/******
-//test
-
-
-object schema
-
-User: {
-username: "Alex",
-boards: [
-	{
-	boardTitle: "BoardA",
-	panels: [
-		{
-		panelTitle: PanelOne,
-		notes: ["Do this", "then that", "finish and done"]
-		}
-	]
-
-	}
-]
-}
-
-
-
-***/

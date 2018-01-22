@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 import Header from "../components/Header";
 
 class HeaderContainer extends Component {
@@ -11,6 +10,8 @@ class HeaderContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
+	console.log("ALL BOARDS", state.allBoards[0].panels);
+
 	return {
 		username: state.user.username
 	};
@@ -24,6 +25,4 @@ HeaderContainer.propTypes = {
 	username: PropTypes.string.required
 };
 
-export default withRouter(
-	connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer);

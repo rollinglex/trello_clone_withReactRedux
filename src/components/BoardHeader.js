@@ -3,15 +3,17 @@ import PropTypes from "prop-types";
 import BoardSelectContainer from "../containers/BoardSelectContainer";
 import AddNewBoardContainer from "../containers/AddNewBoardContainer";
 
-const BoardHeader = ({ boardTitle }) => {
+const BoardHeader = ({ title, handleSelect }) => {
 	return (
 		<header className="board-header">
-			<p>{boardTitle}</p>
+			<p>{title}</p>
 			<div className="board-commands">
 				<AddNewBoardContainer />
-				<p>delete board</p>
+				<p>Delete board</p>
 			</div>
-			<BoardSelectContainer className="board-select">
+			<BoardSelectContainer
+				className="board-select"
+				onSelect={id => handleSelect(id)}>
 				Select board
 			</BoardSelectContainer>
 		</header>

@@ -5,11 +5,11 @@ const AddPanel = ({
 	handleValueChange,
 	handleClose,
 	addPanel,
-	resetState,
 	title,
-	board_id,
+	boardId,
 	allBoards,
-	boardTitle
+	boardTitle,
+	resetForm
 }) => {
 	return (
 		<div className="add-panel-container">
@@ -17,8 +17,9 @@ const AddPanel = ({
 			<button
 				className="addPanelBtn"
 				onClick={() => {
-					addPanel(title, board_id, allBoards, boardTitle);
-					resetState();
+					addPanel(title, boardId, allBoards, boardTitle);
+
+					resetForm();
 				}}>
 				{" "}
 				&#10010;
@@ -27,7 +28,7 @@ const AddPanel = ({
 				className="closeAddBtn"
 				onClick={() => {
 					handleClose();
-					resetState();
+					resetForm();
 				}}>
 				&#9747;
 			</button>

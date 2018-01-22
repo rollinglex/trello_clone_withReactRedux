@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import BoardSelect from "../components/BoardSelect";
-import { getBoardOnTitle } from "../actions";
+
 //returns the titles of each board to populate Board Select element
 function getBoardTitles(boards) {
 	return boards.map((eachBoard, i) => {
@@ -15,13 +15,24 @@ function getBoardTitles(boards) {
 }
 
 class BoardSelectContainer extends Component {
+	getBoardIdByTitle = (boards, title) => {
+		return boards.filter(board => {
+			return board.board_title === title;
+		});
+	};
 	render() {
 		return (
 			<BoardSelect
 				children={getBoardTitles(this.props.boards)}
-				onChange={e =>
-					this.props.handleChange(e.target.value, this.props.boards)}
-				selection={this.props.selection}
+				onSelect={e => {
+					let selectedBoard = this.getBoardIdByTitle(
+						this.props.boards,
+						e.target.value
+					);
+					let id = selectedBoard[0].board_id;
+					//onSelect passed in from BoardContainer.js
+					this.props.onSelect(id);
+				}}
 			/>
 		);
 	}
@@ -29,20 +40,17 @@ class BoardSelectContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		boards: state.allBoards,
-		selection: state.selected
+		boards: state.allBoards
 	};
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		handleChange: (boardTitle, boards) => {
-			dispatch(getBoardOnTitle(boardTitle, boards));
-		}
-	};
+	return {};
 };
 
-BoardSelectContainer.propTypes = {};
+BoardSelectContainer.propTypes = {
+	boards: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(
 	BoardSelectContainer

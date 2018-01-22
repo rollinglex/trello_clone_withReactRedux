@@ -59,6 +59,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 	};
 };
 
-AddNoteContainer.propTypes = {};
+AddNoteContainer.propTypes = {
+	addNoteHandler: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddNoteContainer);
